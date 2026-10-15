@@ -1,5 +1,5 @@
 local mod = get_mod("Barber_Surgeon_Improved")
-mod.version = "1.0"
+mod.version = "1.0.1"
 
 mod:add_global_localize_strings({
 	loc_bsi_show_gear = {

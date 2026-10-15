@@ -31,7 +31,7 @@ end
 CharacterAppearanceView.cb_toggle_gear = function(self)
 	local character_create = self._character_create
 
-	if not character_create then
+	if not character_create or self._is_barber_companion_appearance then
 		return
 	end
 
@@ -68,7 +68,7 @@ mod:hook_safe(CLASS.CharacterAppearanceView, "_setup_input_legend", function(sel
 				parent._input_legend_element:set_display_name(id, display_name)
 			end
 
-			return parent._is_barber and parent._is_character_showing
+			return parent._is_barber and not parent._is_barber_companion_appearance and parent._is_character_showing
 		end,
 		callback(self, "cb_toggle_gear"),
 		"right_alignment"
