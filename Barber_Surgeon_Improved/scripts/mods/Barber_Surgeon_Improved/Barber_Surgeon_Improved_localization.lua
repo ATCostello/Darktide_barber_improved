@@ -56,7 +56,7 @@ mod.gradientText = function(text, startColor, endColor, colorSpaces)
 		end
 	end
 
-	result = "{#color(" .. colours.title .. ")}" .. result .. "{#reset()}"
+	result = "{#color(" .. colours.title .. ")} " .. result .. "{#reset()}"
 	return result
 end
 
@@ -81,7 +81,7 @@ mod.localisation = {
 		en = "{#color("
 			.. colours.text
 			.. ")}"
-			.. "Adds a legend toggle in the barber surgeon's modify appearance view that switches your current character between their equipped gear and no gear."
+			.. "Various improvements to the 'Barber Surgeon' character appearance editor, to enhance your darktide experience."
 			.. "{#reset()}\n\n"
 			.. "{#color("
 			.. colours.subtitle
