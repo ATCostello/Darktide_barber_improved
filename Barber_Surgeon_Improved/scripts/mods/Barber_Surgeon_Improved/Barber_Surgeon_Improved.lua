@@ -62,6 +62,10 @@ mod:hook_safe(CLASS.CharacterAppearanceView, "_setup_input_legend", function(sel
 		LOC_SHOW_GEAR,
 		"hotkey_menu_special_1",
 		function(parent, id)
+			if not parent then
+				return false
+			end
+
 			local display_name = gear_is_hidden(parent) and LOC_SHOW_GEAR or LOC_HIDE_GEAR
 
 			if parent._input_legend_element and id then
