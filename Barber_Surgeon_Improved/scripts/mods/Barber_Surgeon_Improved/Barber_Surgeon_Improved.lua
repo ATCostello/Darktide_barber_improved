@@ -58,25 +58,19 @@ mod:hook_safe(CLASS.CharacterAppearanceView, "_setup_input_legend", function(sel
 		return
 	end
 
-	input_legend:add_entry(
-		LOC_SHOW_GEAR,
-		"hotkey_menu_special_1",
-		function(parent, id)
-			if not parent then
-				return false
-			end
+	input_legend:add_entry(LOC_SHOW_GEAR, "hotkey_menu_special_1", function(parent, id)
+		if not parent then
+			return false
+		end
 
-			local display_name = gear_is_hidden(parent) and LOC_SHOW_GEAR or LOC_HIDE_GEAR
+		local display_name = gear_is_hidden(parent) and LOC_SHOW_GEAR or LOC_HIDE_GEAR
 
-			if parent._input_legend_element and id then
-				parent._input_legend_element:set_display_name(id, display_name)
-			end
+		if parent._input_legend_element and id then
+			parent._input_legend_element:set_display_name(id, display_name)
+		end
 
-			return parent._is_barber and not parent._is_barber_companion_appearance and parent._is_character_showing
-		end,
-		callback(self, "cb_toggle_gear"),
-		"right_alignment"
-	)
+		return parent._is_barber and not parent._is_barber_companion_appearance and parent._is_character_showing
+	end, callback(self, "cb_toggle_gear"), "right_alignment")
 end)
 
 return mod
