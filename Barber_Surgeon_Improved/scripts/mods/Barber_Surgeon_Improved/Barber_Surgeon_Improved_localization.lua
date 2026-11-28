@@ -92,10 +92,16 @@ mod.localisation = {
 }
 
 mod.toggle_pizazz = function()
-	local source = mod.localisation.mod_name_boring
+	local localisation = mod.localisation
+
+	if not localisation or type(localisation.mod_name) ~= "table" then
+		return
+	end
+
+	local source = localisation.mod_name_boring
 
 	if mod:get("mod_name_pizazz_toggle") ~= false then
-		source = mod.localisation.mod_name_pizazz
+		source = localisation.mod_name_pizazz
 	end
 
 	if type(source) ~= "table" then
@@ -103,7 +109,7 @@ mod.toggle_pizazz = function()
 	end
 
 	for language, name in pairs(source) do
-		mod.localisation.mod_name[language] = name
+		localisation.mod_name[language] = name
 	end
 end
 
